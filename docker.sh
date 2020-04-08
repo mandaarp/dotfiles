@@ -97,3 +97,11 @@ alias dclsall='docker container ls --all'
 ## Docker image helpers
 alias dils='docker image ls'
 alias dilsall='docker image ls --all'
+dipull() {
+    if [ $# == 1 ]; then
+        # pull the image
+        docker image pull $1
+    else
+        echo "USAGE: $0 <image_path_to_pull>"
+    fi
+}
