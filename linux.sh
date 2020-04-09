@@ -350,3 +350,14 @@ function __setprompt() {
     PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 PROMPT_COMMAND='__setprompt'
+
+install() {
+    sudo apt install -y $1
+}
+display() {
+    sudo vbetool dpms $1
+}
+
+alias update='sudo apt update'
+alias upgradable='apt list --upgradable'
+alias upgrade='sudo apt upgrade -y'

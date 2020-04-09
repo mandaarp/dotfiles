@@ -249,3 +249,5 @@ trim() {
     var="${var%"${var##*[![:space:]]}"}" # remove trailing whitespace characters
     echo -n "$var"
 }
+
+export TZ="America/Los_Angeles"
