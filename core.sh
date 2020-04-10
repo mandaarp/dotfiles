@@ -251,3 +251,4 @@ trim() {
 }
 
 export TZ="America/Los_Angeles"
+alias venv="source ./venv/bin/activate"
