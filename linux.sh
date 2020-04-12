@@ -361,3 +361,4 @@ display() {
 alias update='sudo apt update'
 alias upgradable='apt list --upgradable'
 alias upgrade='sudo apt upgrade -y'
+alias r='source ~/.bashrc'
