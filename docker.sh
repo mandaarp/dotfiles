@@ -91,8 +91,9 @@ dclupgrade() {
     fi
 }
 alias dcprune='docker container prune'
-alias dcls='docker container ls'
+alias dcls='docker container ls --format "table {{.Names}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}"'
 alias dclsall='docker container ls --all'
+alias dclse='docker container ls --all | grep Exited'
 
 ## Docker image helpers
 alias dils='docker image ls'
