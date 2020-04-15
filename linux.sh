@@ -358,7 +358,7 @@ display() {
     sudo vbetool dpms $1
 }
 
-alias update='sudo apt update'
+alias update='sudo apt update && apt list --upgradable'
 alias upgradable='apt list --upgradable'
 alias upgrade='sudo apt upgrade -y'
 alias r='source ~/.bashrc'
