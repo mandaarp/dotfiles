@@ -251,4 +251,4 @@ trim() {
 }
 
 export TZ="America/Los_Angeles"
-alias venv="source ./venv/bin/activate"
+alias venv="source ./venv/bin/activate && echo 'Virtual environment activated.'"
