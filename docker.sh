@@ -90,10 +90,12 @@ dclupgrade() {
         echo "create.sh: usually includes script to create a new container e.g. docker create --name nginx -p 80:80 -v ${PWD}/nginx.conf:/etc/nginx/nginx.conf:ro nginx"
     fi
 }
+table_format="table {{.Names}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}"
 alias dcprune='docker container prune'
-alias dcls='docker container ls --format "table {{.Names}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Ports}}"'
-alias dclsall='docker container ls --all'
-alias dclse='docker container ls --all | grep Exited'
+alias dcls='docker container ls --format "${table_format}"'
+alias dclsall='docker container ls --all --format "${table_format}"'
+alias dclse='docker container ls --all --format "${table_format}" | grep Exited'
+alias dclsc='docker container ls --all --format "${table_format}" | grep Created'
 
 ## Docker image helpers
 alias dils='docker image ls'
@@ -103,6 +105,21 @@ dipull() {
         # pull the image
         docker image pull $1
     else
-        echo "USAGE: $0 <image_path_to_pull>"
+        echo "USAGE: dipull <image_path_to_pull>"
+    fi
+}
+dibuild() {
+    if [ $# == 1 ]; then
+        docker build --tag $1 .
+    else
+        echo "USAGE: dibuild <tagname>"
+    fi
+}
+dipush() {
+    if [ $# == 1 ]; then
+        docker tag $1 host:5100/$1
+        docker push host:5100/$1
+    else
+        echo "USAGE: dipush <tagname>"
     fi
 }
