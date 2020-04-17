@@ -251,4 +251,5 @@ trim() {
 }
 
 export TZ="America/Los_Angeles"
+alias venv-make="virtualenv -p python3 venv && venv && pip install -r requirements.txt"
 alias venv="source ./venv/bin/activate && echo 'Virtual environment activated.'"
