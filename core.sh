@@ -253,3 +253,16 @@ trim() {
 export TZ="America/Los_Angeles"
 alias venv-make="virtualenv -p python3 venv && venv && pip install -r requirements.txt"
 alias venv="source ./venv/bin/activate && echo 'Virtual environment activated.'"
+
+load_dotenv() {
+    local file="./.env"
+    if [ $# == 1 ]; then
+        file=$1
+    fi
+    if [ -f $file ]; then
+        echo "loading $file ..."
+        export $(cat ${file} | xargs)
+    else
+        echo "File not found: $file"
+    fi
+}
