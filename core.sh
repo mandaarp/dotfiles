@@ -266,3 +266,8 @@ load_dotenv() {
         echo "File not found: $file"
     fi
 }
+
+alias cpsync="rsync --progress --info=progress2 -rh --no-i-r --ignore-existing"
+alias cpsyncf="rsync --progress --info=progress2 -rh --no-i-r"
+alias mvsync="rsync --progress --info=progress2 -rh --no-i-r --ignore-existing --remove-source-files"
+alias mvsyncf="rsync --progress --info=progress2 -rh --no-i-r --remove-source-files"
