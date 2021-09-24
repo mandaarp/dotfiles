@@ -116,9 +116,9 @@ dibuild() {
     fi
 }
 dipush() {
-    if [ $# == 1 ]; then
-        docker tag $1 host:5100/$1
-        docker push host:5100/$1
+    if [ $# == 2 ]; then
+        docker tag $2 $1:5100/$2
+        docker push $1:5100/$2
     else
         echo "USAGE: dipush <tagname>"
     fi
