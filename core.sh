@@ -267,6 +267,14 @@ load_dotenv() {
     fi
 }
 
+listen_kill() {
+    if [ $# == 1]; then
+        lsof -i tcp:$1 2>/dev/null | awk 'NR!=1 {print $2}' | xargs kill
+    else
+        echo "Usage: listen_kill <port>"
+    fi
+}
+
 alias cpsync="rsync --progress --info=progress2 -rh --no-i-r --ignore-existing"
 alias cpsyncf="rsync --progress --info=progress2 -rh --no-i-r"
 alias mvsync="rsync --progress --info=progress2 -rh --no-i-r --ignore-existing --remove-source-files"
